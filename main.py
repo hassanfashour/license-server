@@ -1,54 +1,57 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
-# ========= قاعدة بيانات السيريالات =========
-# الصيغة: "السريال": {"expiry": "يوم-شهر-سنة", "used_on": "ID الجهاز او None"}
+# ====== قاعدة بيانات السيريالات ======
+# تقدر تضيف براحتك هون
 LICENSES = {
     "SR-TEST-001": {"expiry": "31-12-2027", "used_on": None},
     "SR-DEMO-002": {"expiry": "31-12-2026", "used_on": None},
-    # ضيف هون سيريالات جديدة
+    "SR-PRO-003": {"expiry": "31-12-2025", "used_on": None},
 }
-# =============================================
+
+# ====== الصفحات ======
 
 @app.route('/')
 def home():
-    return "License Server is Running"
+    return "Server is running"
 
-@app.route('/activate', methods=['POST'])
-def activate():
-    try:
-        data = request.json
-        serial = data.get('serial')
-        machine_id = data.get('machine_id')
+@app.route('/verify', methods=['POST'])
+def verify():
+    data = request.get_json()
 
-        if not serial or not machine_id:
-            return jsonify({"status": "error", "message": "بيانات ناقصة"}), 400
+    if not data:
+        return jsonify({"status": "error", "message": "No data sent"}), 400
 
-        if serial not in LICENSES:
-            return jsonify({"status": "error", "message": "السريال غير صحيح"}), 400
+    serial = data.get('serial')
+    device_id = data.get('device_id')
 
-        license = LICENSES[serial]
+    if not serial or not device_id:
+        return jsonify({"status": "error", "message": "serial and device_id required"}), 400
 
-        # فحص التاريخ
-        if datetime.now() > datetime.strptime(license["expiry"], "%d-%m-%Y"):
-            return jsonify({"status": "error", "message": f"الترخيص منتهي بتاريخ {license['expiry']}"}), 400
+    if serial not in LICENSES:
+        return jsonify({"status": "invalid", "message": "Serial not found"}), 404
 
-        # فحص الجهاز
-        if license["used_on"] is None:
-            license["used_on"] = machine_id # اول تفعيل - نقفله على الجهاز
-            print(f"تم تفعيل {serial} على جهاز {machine_id}")
-            return jsonify({"status": "success", "message": "تم التفعيل بنجاح"})
+    license_data = LICENSES[serial]
 
-        elif license["used_on"] == machine_id:
-            return jsonify({"status": "success", "message": "الترخيص مفعل"}) # نفس الجهاز
+    # 1. فحص الانتهاء
+    expiry_date = datetime.strptime(license_data["expiry"], "%d-%m-%Y")
+    if datetime.now() > expiry_date:
+        return jsonify({"status": "expired", "message": "License expired"}), 403
 
-        else:
-            return jsonify({"status": "error", "message": "هذا السريال مستخدم على جهاز اخر"}), 400
+    # 2. فحص الاستخدام على جهاز ثاني
+    if license_data["used_on"] is not None and license_data["used_on"]!= device_id:
+        return jsonify({"status": "used", "message": "License already used on another device"}), 403
 
-    except Exception as e:
-        return jsonify({"status": "error", "message": "خطأ في السيرفر"}), 500
+    # 3. لو اول مرة: سجل الجهاز
+    if license_data["used_on"] is None:
+        LICENSES[serial]["used_on"] = device_id
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    return jsonify({"status": "valid", "message": "License is valid"}), 200
+
+# ====== مهم عشان Render ======
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
