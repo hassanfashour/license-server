@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # ملاحظة: البيانات في القاموس ستتصفّر عند إعادة تشغيل السيرفر على Render
 LICENSES = {
-    "SR-TEST-001": {"expiry": "31-12-2027", "used_on": None},
+    "SR-TEST-001": {"expiry": "24-08-2026", "used_on": None},
 }
 
 @app.route('/')
