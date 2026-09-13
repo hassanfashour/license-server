@@ -11,7 +11,7 @@ LICENSES = {
     "SR-TEST-004": {"expiry": "04-04-2027", "used_on": None},
     "SR-TEST-005": {"expiry": "01-09-2026", "used_on": None},
     "SR-TEST-006": {"expiry": "10-09-2027", "used_on": None},
-    "SR-TEST-007": {"expiry": "13-09-2026", "used_on": None},
+    "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
 }
 
 @app.route('/')
