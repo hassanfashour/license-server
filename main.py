@@ -6,12 +6,12 @@ app = Flask(__name__)
 
 # ملاحظة: البيانات في القاموس ستتصفّر عند إعادة تشغيل السيرفر على Render
 LICENSES = {
-    "SR-TEST-001": {"expiry": "31-09-2026", "used_on": None},
+    "7YGPK-KULE5-FWZDY-5CUDP": {"expiry": "31-09-2026", "used_on": None}, #Hassan
     # "SR-TEST-003": {"expiry": "01-01-2027", "used_on": None},
-    "SR-TEST-004": {"expiry": "04-04-2027", "used_on": None},
-    "SR-TEST-005": {"expiry": "01-09-2026", "used_on": None},
-    "SR-TEST-006": {"expiry": "17-09-2027", "used_on": None},
-    "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
+    # "SR-TEST-004": {"expiry": "04-04-2027", "used_on": None},
+    # "SR-TEST-005": {"expiry": "01-09-2026", "used_on": None},
+    # "SR-TEST-006": {"expiry": "17-09-2027", "used_on": None},
+    # "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
 }
 
 @app.route('/')
