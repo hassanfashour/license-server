@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # ملاحظة: البيانات في القاموس ستتصفّر عند إعادة تشغيل السيرفر على Render
 LICENSES = {
-    "7YGPK-KULE5-FWZDY-5CUDP": {"expiry": "22-09-2026", "used_on": None}, #Hassan
+    "7YGPK-KULE5-FWZDY-5CUDP": {"expiry": "22-10-2026", "used_on": None}, #Hassan
     # "PGXSY-P3NG9-Q22EH-WPQGL": {"expiry": "28-09-2026", "used_on": None}, #HBF
     # "3KC53-64H8G-C2EJ3-V5C7D": {"expiry": "28-09-2026", "used_on": None}, #HBF
     "5GP2R-SW4GR-AGN9F-KCBGN": {"expiry": "29-09-2026", "used_on": None}, #HBF
