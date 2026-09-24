@@ -13,7 +13,7 @@ LICENSES = {
     # "HRTKA-UBJCY-AGTCC-55GMH": {"expiry": "27-09-2026", "used_on": None}, #ISLAM
     "3ZHP8-4CMGH-HEL4L-7J9HN": {"expiry": "27-09-2026", "used_on": None}, #ISLAM
     "TVYNH-JPFJ7-29TL4-PTFKQ": {"expiry": "01-10-2026", "used_on": None}, #SaYa
-    # "SR-TEST-004": {"expiry": "04-04-2027", "used_on": None},
+    "R8FSU-AV4SB-9EUXQ-6GRMP": {"expiry": "24-10-2026", "used_on": None}, #OMER
     # "SR-TEST-005": {"expiry": "01-09-2026", "used_on": None},
     # "SR-TEST-006": {"expiry": "17-09-2027", "used_on": None},
     # "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
