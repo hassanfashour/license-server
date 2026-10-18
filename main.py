@@ -12,7 +12,7 @@ LICENSES = {
     "TVYNH-JPFJ7-29TL4-PTFKQ": {"expiry": "02-10-2026", "used_on": None}, #SaYa
     "R8FSU-AV4SB-9EUXQ-6GRMP": {"expiry": "24-10-2026", "used_on": None}, #OMER
     "6S6PW-X7JZN-3AQ64-GUM7B": {"expiry": "20-10-2026", "used_on": None}, #IBRAHIM
-    "PMSE7-QMFQW-WX7YM-RF742": {"expiry": "24-10-2026", "used_on": None}, #Hamoshka
+    "VWWGJ-G3WHT-R3DTR-MLSXN": {"expiry": "24-10-2026", "used_on": None}, #Hamoshka
     # "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
 }
 
