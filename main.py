@@ -13,7 +13,8 @@ LICENSES = {
     "R8FSU-AV4SB-9EUXQ-6GRMP": {"expiry": "24-10-2026", "used_on": None}, #OMER
     "6S6PW-X7JZN-3AQ64-GUM7B": {"expiry": "20-10-2026", "used_on": None}, #IBRAHIM
     "VWWGJ-G3WHT-R3DTR-MLSFN": {"expiry": "24-11-2026", "used_on": None}, #Mohammed
-    "XAT7F-CDJBC-XWVVB-PTRCP": {"expiry": "24-11-2026", "used_on": None}, #KHALED
+    "XAT7F-CDJBC-XWVVB-PTRCP": {"expiry": "07-11-2026", "used_on": None}, #KHALED
+    "XY8DD-RJ8PC-SPVEL-QCY4S": {"expiry": "04-11-2026", "used_on": None}, #MOSA
     # "VWWGJ-G3WHT-R3DTR-MLSXF": {"expiry": "30-10-2026", "used_on": None}, #SANAD
     # "SR-TEST-007": {"expiry": "14-09-2026", "used_on": None},
 }
